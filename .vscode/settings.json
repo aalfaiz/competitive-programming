@@ -2,5 +2,9 @@
     "code-runner.executorMap": {
         "csharp":"dotnet-script"
     },
-    "dotnet.server.useOmnisharp": true
+    "dotnet.server.useOmnisharp": true,
+    "[csharp]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "csharpier.csharpier-vscode"
+    }
 }
