@@ -6,5 +6,6 @@
     "[csharp]": {
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "csharpier.csharpier-vscode"
-    }
+    },
+    "markdown.preview.openMarkdownLinks": "inEditor"
 }
