@@ -5,8 +5,8 @@
       "name": ".NET Script Debug",
       "type": "coreclr",
       "request": "launch",
-      "program": "/usr/bin/dotnet/tools/dotnet-script",
-      "args": ["${file}"],
+      "program": "/usr/bin/dotnet ",
+      "args": ["script", "${file}"],
       "windows": {
         "program": "/usr/bin/dotnet/tools/dotnet-script.exe",
       },
