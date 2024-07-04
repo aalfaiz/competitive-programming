@@ -11,5 +11,6 @@
     "dotnet.backgroundAnalysis.analyzerDiagnosticsScope": "none",
     "dotnet.backgroundAnalysis.compilerDiagnosticsScope": "none",
     "dotnet.codeLens.enableTestsCodeLens": false,
-    "dotnet.codeLens.enableReferencesCodeLens": false
+    "dotnet.codeLens.enableReferencesCodeLens": false,
+    "dotnet.dotnetPath": "/usr/bin/dotnet"
 }
