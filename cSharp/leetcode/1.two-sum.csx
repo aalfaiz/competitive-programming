@@ -1,4 +1,6 @@
+#r "nuget:  Shouldly , 4.3.0"
 using System;
+using Shouldly;
 
 /*
  * @lc app=leetcode id=1 lang=csharp
@@ -29,5 +31,4 @@ public class Solution
 
 var sol = new Solution();
 var result = sol.TwoSum([2, 7, 11, 15], 9);
-string print = string.Join(",", result.ToArray());
-System.Console.WriteLine(print);
+result.ShouldBe(new[] { 0, 1 });
