@@ -1,7 +1,7 @@
 {
-    "script": {
-      "enabled": true,
-      "enableScriptNuGetReferences": true,
-      "defaultTargetFramework": "net8.0"
-    }
+  "script": {
+    "enabled": true,
+    "enableScriptNuGetReferences": true,
+    "defaultTargetFramework": "net8.0"
   }
+}
