@@ -1,4 +1,5 @@
 #r "nuget:  Shouldly , 4.3.0"
+using System.Text.Json;
 using Shouldly;
 using Shouldly.Configuration;
 
@@ -14,14 +15,26 @@ public class Solution
 {
     public int[] TopKFrequent(int[] nums, int k)
     {
-        var result = nums.GroupBy(x => x).ToList(); //.OrderBy(x => x.Key).Select(x => x.Key).Take(k).ToArray();
-        Console.WriteLine(result.ToList());
-        return [];
+        var result = nums.GroupBy(x => x)
+            .OrderByDescending(x => x.Count())
+            .Take(k)
+            .Select(x => x.Key)
+            .ToArray();
+        return result;
     }
 }
 
 // @lc code=end
+
+
+/*
+string json = JsonSerializer.Serialize(result);
+        Console.WriteLine(json);
+*/
 int[] result;
+result = new Solution().TopKFrequent([4, 4, 4, 6, 6, 7, 7, 7, 8], 2);
+result.ShouldBe([7, 4], ignoreOrder: true);
+
 result = new Solution().TopKFrequent([1, 1, 1, 2, 2, 3], 2);
 result.ShouldBe([1, 2]);
 
@@ -29,9 +42,6 @@ result = new Solution().TopKFrequent([1], 1);
 result.ShouldBe([1]);
 
 // Additional unit tests for TopKFrequent method
-
-result = new Solution().TopKFrequent([4, 4, 4, 6, 6, 7, 7, 7, 8], 2);
-result.ShouldBe(new[] { 7, 4 }, ignoreOrder: true);
 
 result = new Solution().TopKFrequent([5, 5, 5, 5, 5], 1);
 result.ShouldBe([5]);
