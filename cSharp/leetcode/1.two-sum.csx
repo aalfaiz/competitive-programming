@@ -29,6 +29,15 @@ public class Solution
 
 // @lc code=end
 
-var sol = new Solution();
-var result = sol.TwoSum([2, 7, 11, 15], 9);
-result.ShouldBe(new[] { 0, 1 });
+try
+{
+    var sol = new Solution();
+    var result = sol.TwoSum([2, 7, 11, 15], 9);
+    result.ShouldBe(new[] { 0, 1 });
+
+    Console.WriteLine("test passed");
+}
+catch (Exception ex)
+{
+    System.Console.WriteLine(ex);
+}

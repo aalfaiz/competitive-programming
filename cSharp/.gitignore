@@ -14,7 +14,9 @@
 **/*.swp
 **/*.swo
 .idea/
-.vscode/
+
+# since I use it for personal use, enable it
+#.vscode/
 *.tmproj
 *.iml
 
