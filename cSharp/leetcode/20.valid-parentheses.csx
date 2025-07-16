@@ -14,9 +14,15 @@ public class Solution
     public bool IsValid(string s)
     {
         var stack = new Stack<char>();
-        var isValid = true;
+        var isValid = false;
         List<char> openBrackets = ['[', '(', '{'];
         List<char> closesBrackets = [']', ')', '}'];
+
+        if (s == string.Empty)
+        {
+            return true;
+        }
+
         foreach (char c in s)
         {
             if (openBrackets.Contains(c))
@@ -51,6 +57,11 @@ public class Solution
             }
         }
 
+        if (stack.Count > 0)
+        {
+            isValid = false;
+        }
+
         return isValid;
     }
 }
@@ -69,3 +80,6 @@ new Solution().IsValid("{[]}").ShouldBe(true);
 new Solution().IsValid("").ShouldBe(true);
 new Solution().IsValid("(((((").ShouldBe(false);
 new Solution().IsValid("(()())").ShouldBe(true);
+new Solution().IsValid("(){}}{").ShouldBe(false);
+
+Console.WriteLine("All test passed");
