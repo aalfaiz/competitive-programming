@@ -1,4 +1,6 @@
 #r "nuget:  Shouldly , 4.3.0"
+#load "Utils.csx"
+
 using System;
 using Shouldly;
 
@@ -70,16 +72,18 @@ public class Solution
 
 
 // Example Shouldly test case for IsValid
-new Solution()
-    .IsValid("()")
-    .ShouldBe(true);
-new Solution().IsValid("()[]{}").ShouldBe(true);
-new Solution().IsValid("(]").ShouldBe(false);
-new Solution().IsValid("([)]").ShouldBe(false);
-new Solution().IsValid("{[]}").ShouldBe(true);
-new Solution().IsValid("").ShouldBe(true);
-new Solution().IsValid("(((((").ShouldBe(false);
-new Solution().IsValid("(()())").ShouldBe(true);
-new Solution().IsValid("(){}}{").ShouldBe(false);
 
-Console.WriteLine("All test passed");
+void Tests()
+{
+    new Solution().IsValid("(").ShouldBe(true);
+    new Solution().IsValid("()[]{}").ShouldBe(true);
+    new Solution().IsValid("(]").ShouldBe(false);
+    new Solution().IsValid("([)]").ShouldBe(false);
+    new Solution().IsValid("{[]}").ShouldBe(true);
+    new Solution().IsValid("").ShouldBe(true);
+    new Solution().IsValid("(((((").ShouldBe(false);
+    new Solution().IsValid("(()())").ShouldBe(true);
+    new Solution().IsValid("(){}}{").ShouldBe(false);
+}
+
+RunTests([Tests]);

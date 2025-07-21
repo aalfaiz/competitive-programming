@@ -1,4 +1,5 @@
 #r "nuget:  Shouldly , 4.3.0"
+#load "Utils.csx"
 using System;
 using Shouldly;
 
@@ -29,15 +30,11 @@ public class Solution
 
 // @lc code=end
 
-try
+void Test1()
 {
     var sol = new Solution();
     var result = sol.TwoSum([2, 7, 11, 15], 9);
-    result.ShouldBe(new[] { 0, 1 });
+    result.ShouldBe([0, 1]);
+}
 
-    Console.WriteLine("test passed");
-}
-catch (Exception ex)
-{
-    System.Console.WriteLine(ex);
-}
+RunTests([Test1]);
