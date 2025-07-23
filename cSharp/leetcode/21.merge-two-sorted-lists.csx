@@ -30,7 +30,6 @@ public class Solution
 {
     public ListNode MergeTwoLists(ListNode list1, ListNode list2)
     {
-        ListNode list = list1;
         if (list1 != null && list2 == null)
         {
             return list1;
@@ -45,14 +44,53 @@ public class Solution
         }
         else
         {
-            while (list2 != null)
+            ListNode list;
+            ListNode startNode;
+            if (list1.val > list2.val)
             {
-                list.next = list2;
+                list = new ListNode(list2.val);
+                startNode = list;
                 list2 = list2.next;
             }
-        }
+            else
+            {
+                list = new ListNode(list1.val);
+                startNode = list;
+                list1 = list1.next;
+            }
 
-        return list;
+            while (list1 != null || list2 != null)
+            {
+                if (list1 == null)
+                {
+                    list.next = new ListNode(list2.val);
+                    list = list.next;
+                    list2 = list2.next;
+                }
+                else if (list2 == null)
+                {
+                    list.next = new ListNode(list1.val);
+                    list = list.next;
+                    list1 = list1.next;
+                }
+                else
+                {
+                    if (list1.val < list2.val)
+                    {
+                        list.next = new ListNode(list1.val);
+                        list = list.next;
+                        list1 = list1.next;
+                    }
+                    else
+                    {
+                        list.next = new ListNode(list2.val);
+                        list = list.next;
+                        list2 = list2.next;
+                    }
+                }
+            }
+            return startNode;
+        }
     }
 }
 
